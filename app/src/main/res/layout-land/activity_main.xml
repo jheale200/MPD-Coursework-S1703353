@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_alignParentTop="false"
+        android:gravity="center"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:text="Welcome to the Traffic Scotland Application"
+        android:textColor="#0A0000"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="400dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginBottom="123dp"
+        android:text="Planned RoadWorks" />
+
+    <Button
+        android:id="@+id/Button2"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginBottom="123dp"
+        android:text="All Roadworks" />
+
+    <Button
+        android:id="@+id/Button3"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginLeft="108dp"
+        android:layout_marginBottom="33dp"
+        android:text="Current RoadWorks" />
+
+    <Button
+        android:id="@+id/Button4"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="400dp"
+        android:layout_marginLeft="1080dp"
+        android:layout_marginBottom="33dp"
+        android:text="Exit" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:text="Joseph Healey S1703353" />
+
+    <TextView
+        android:id="@+id/AppTitle"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:text="Traffic Scotland App" />
+
+
+</RelativeLayout>
