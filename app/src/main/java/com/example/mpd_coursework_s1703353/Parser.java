@@ -18,32 +18,35 @@ import java.util.List;
 
 public class Parser {
 
-    private static String TAG_TITLE = "title";
-    private static String TAG_DESCRIPTION = "description";
-    private static String TAG_GEORSS = "georss:point";
-    private static String TAG_PUBDATE = "pubDate";
-    private static String TAG_ITEM = "item";
-    private static String TAG_LINK = "link";
+    private static String TITLE = "title";
+    private static String DESCRIPTION = "description";
+    private static String GEORSS = "georss:point";
+    private static String PUBDATE = "pubDate";
+    private static String ITEM = "item";
+    private static String LINK = "link";
+
 
     public Parser(){
 
     }
 
-    public List<TrafficItems> getRSSFeedItems(String rss_url) {
+    public List<TrafficItems> getFeedItems(String RSS_URL) {
         List<TrafficItems> ItemList = new ArrayList<TrafficItems>();
-        String rss_feed_xml;
+        String xml_feed;
 
-        rss_feed_xml = this.getXmlFromUrl(rss_url);
-        if (rss_feed_xml != null) {
+        xml_feed = this.getXmlUrl(RSS_URL);
+        if (xml_feed != null) {
 
             XmlPullParserFactory parserFactory;
+
             try {
                 parserFactory = XmlPullParserFactory.newInstance();
                 XmlPullParser parser = parserFactory.newPullParser();
                 parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-                parser.setInput(new StringReader(rss_feed_xml));
-                TrafficItems rssTraffic = null;
+                parser.setInput(new StringReader(xml_feed));
+                TrafficItems RSSTraffic = null;
                 int eventType = parser.getEventType();
+
                 while (eventType != XmlPullParser.END_DOCUMENT) {
                     String eltName = null;
 
@@ -52,21 +55,21 @@ public class Parser {
                         case XmlPullParser.START_TAG:
                             eltName = parser.getName();
 
-                            if (TAG_ITEM.equals(eltName)) {
-                                rssTraffic = new TrafficItems();
-                                ItemList.add(rssTraffic);
+                            if (ITEM.equals(eltName)) {
+                                RSSTraffic = new TrafficItems();
+                                ItemList.add(RSSTraffic);
 
-                            } else if (rssTraffic != null) {
-                                if (TAG_TITLE.equals(eltName)) {
-                                    rssTraffic.setTitle(parser.nextText());
-                                } else if (TAG_DESCRIPTION.equals(eltName)) {
-                                    rssTraffic.setDescription(parser.nextText().replaceAll("<.*?>","\n"));
-                                } else if (TAG_LINK.equals(eltName)) {
-                                    rssTraffic.setLink(parser.nextText());
-                                } else if (TAG_GEORSS.equals(eltName)) {
-                                    rssTraffic.setGeorss(parser.nextText());
-                                }  else if (TAG_PUBDATE.equals(eltName)) {
-                                    rssTraffic.setPubDate(parser.nextText());
+                            } else if (RSSTraffic != null) {
+                                if (TITLE.equals(eltName)) {
+                                    RSSTraffic.setTitle(parser.nextText());
+                                } else if (DESCRIPTION.equals(eltName)) {
+                                    RSSTraffic.setDescription(parser.nextText().replaceAll("<.*?>","\n"));
+                                } else if (LINK.equals(eltName)) {
+                                    RSSTraffic.setLink(parser.nextText());
+                                } else if (GEORSS.equals(eltName)) {
+                                    RSSTraffic.setGeorss(parser.nextText());
+                                }  else if (PUBDATE.equals(eltName)) {
+                                    RSSTraffic.setPubDate(parser.nextText());
                                 }
                             }
                             break;
@@ -82,15 +85,15 @@ public class Parser {
         return ItemList;
     }
 
-    public String getXmlFromUrl(String url){
-        String rssxml = null;
+    private String getXmlUrl(String url){
+        String RSS_Xml = null;
 
         try{
             DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpGet httpGet = new HttpGet(url);
             HttpResponse httpResponse = httpClient.execute(httpGet);
             HttpEntity httpEntity = httpResponse.getEntity();
-            rssxml = EntityUtils.toString(httpEntity);
+            RSS_Xml = EntityUtils.toString(httpEntity);
         } catch (UnsupportedEncodingException e){
             e.printStackTrace();
         } catch (ClientProtocolException e){
@@ -98,7 +101,7 @@ public class Parser {
         } catch(IOException e){
             e.printStackTrace();
         }
-        return rssxml;
+        return RSS_Xml;
     }
 
 
