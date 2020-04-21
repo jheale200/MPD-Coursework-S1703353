@@ -7,25 +7,46 @@
 
     <EditText
         android:id="@+id/ItemSearch"
-        android:layout_width="221dp"
-        android:layout_height="wrap_content"
-        android:text="Input Search here." />
+        android:layout_width="242dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:text="Filter search" />
 
     <ListView
         android:id="@android:id/list"
-        android:layout_below="@+id/ItemSearch"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="644dp"
+        android:layout_below="@+id/ItemSearch"
+        android:layout_marginTop="12dp"
         android:dividerHeight="1dp" />
 
 
     <Button
-        android:id="@+id/MainMenubtn"
+        android:id="@+id/MenuButton"
         android:layout_width="157dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
         android:text="Main Menu" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:text="Joseph Healey S1703353" />
+
+    <TextView
+        android:id="@+id/AppTitle"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:text="Traffic Scotland App" />
 
 </RelativeLayout>
